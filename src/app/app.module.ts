@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app.routing';
 import { DynamicComponentLoaderModule, DynamicComponentManifest } from './dynamic-component-loader/dynamic-component-loader.module';
 
 // This array defines which "componentId" maps to which lazy-loaded module.
@@ -19,6 +20,7 @@ const manifests: DynamicComponentManifest[] = [
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     DynamicComponentLoaderModule.forRoot(manifests),
   ],
   providers: [],
