@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { DYNAMIC_COMPONENT } from '../../dynamic-component-loader/dynamic-component-manifest';
+import { DynamicComponentLoaderModule } from '../../dynamic-component-loader/dynamic-component-loader.module';
 import { MessageComponent } from './message.component';
 
 @NgModule({
@@ -8,9 +8,7 @@ import { MessageComponent } from './message.component';
     MessageComponent,
   ],
   imports: [
-  ],
-  providers: [
-    { provide: DYNAMIC_COMPONENT, useValue: MessageComponent },
+    DynamicComponentLoaderModule.forChild(MessageComponent),
   ],
   entryComponents: [
     MessageComponent,
