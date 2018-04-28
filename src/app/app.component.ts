@@ -19,7 +19,8 @@ export class AppComponent {
     this.dynamicComponentLoader
       .getComponentFactory<MessageComponent>('message')
       .subscribe(componentFactory => {
-        this.testOutlet.createComponent(componentFactory);
+        const ref = this.testOutlet.createComponent(componentFactory);
+        ref.changeDetectorRef.detectChanges();
       }, error => {
         console.warn(error);
       });
