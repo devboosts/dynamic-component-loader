@@ -9,7 +9,12 @@ import {
 import { ROUTES } from '@angular/router';
 
 import { DynamicComponentLoader } from './dynamic-component-loader.service';
-import { DYNAMIC_COMPONENT, DYNAMIC_COMPONENT_MANIFESTS, DynamicComponentManifest } from './dynamic-component-manifest';
+import {
+  DYNAMIC_COMPONENT,
+  DYNAMIC_COMPONENT_MANIFESTS,
+  DYNAMIC_MODULE,
+  DynamicComponentManifest,
+} from './dynamic-component-manifest'
 
 @NgModule()
 export class DynamicComponentLoaderModule {
@@ -25,6 +30,17 @@ export class DynamicComponentLoaderModule {
         { provide: DYNAMIC_COMPONENT_MANIFESTS, useValue: manifests },
       ],
     };
+  }
+  static forModule(manifest: DynamicComponentManifest): ModuleWithProviders {
+    return {
+      ngModule: DynamicComponentLoaderModule,
+      providers: [
+        { provide: ANALYZE_FOR_ENTRY_COMPONENTS, useValue: manifest, multi: true },
+        // provider for @angular/router to parse
+        { provide: ROUTES, useValue: manifest, multi: true },
+        // provider for DynamicComponentLoader to analyze
+        { provide: DYNAMIC_MODULE, useValue: manifest }],
+    }
   }
   static forChild(component: Type<any>): ModuleWithProviders {
     return {
