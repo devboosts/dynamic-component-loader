@@ -13,11 +13,13 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^5.0.0",
+    "@angular/cdk": "^5.0.0",
     "@angular/common": "^5.0.0",
     "@angular/compiler": "^5.0.0",
     "@angular/core": "^5.0.0",
     "@angular/forms": "^5.0.0",
     "@angular/http": "^5.0.0",
+    "@angular/material": "^5.0.0",
     "@angular/platform-browser": "^5.0.0",
     "@angular/platform-browser-dynamic": "^5.0.0",
     "@angular/router": "^5.0.0",
@@ -44,6 +46,6 @@
     "protractor": "~5.1.2",
     "ts-node": "~3.2.0",
     "tslint": "^5.8.0",
-    "typescript": "^2.6.2"
+    "typescript": "~2.4.2"
   }
 }
