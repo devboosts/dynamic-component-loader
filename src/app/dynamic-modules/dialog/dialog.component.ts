@@ -6,7 +6,7 @@ import { DynamicComponentLoader } from '../../dynamic-component-loader/dynamic-c
   template: '<div #outlet></div>'
 })
 export class DialogComponent {
-  @ViewChild('outlet', { read: ViewContainerRef }) _outlet:
+  @ViewChild('outlet', { read: ViewContainerRef, static: true }) _outlet:
     | ViewContainerRef
     | undefined;
 

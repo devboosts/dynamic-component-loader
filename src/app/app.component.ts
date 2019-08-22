@@ -10,7 +10,7 @@ import { MessageComponent } from './dynamic-modules/message/message.component';
   templateUrl: './app.component.html'
 })
 export class AppComponent {
-  @ViewChild('testOutlet', { read: ViewContainerRef })
+  @ViewChild('testOutlet', { read: ViewContainerRef, static: true })
   testOutlet: ViewContainerRef | undefined;
 
   constructor(

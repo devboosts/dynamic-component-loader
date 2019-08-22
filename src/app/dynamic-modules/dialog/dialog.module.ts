@@ -9,7 +9,7 @@ import { DialogComponent } from './dialog.component';
     DynamicComponentLoaderModule.forModule({
       componentId: 'dialog',
       path: 'dialog',
-      loadChildren: './content/content.module#ContentModule'
+      loadChildren: () => import('./content/content.module').then(m => m.ContentModule)
     })
   ]
 })

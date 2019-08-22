@@ -16,12 +16,12 @@ const manifests: DynamicComponentManifest[] = [
   {
     componentId: 'message',
     path: 'dynamic-message', // some globally-unique identifier, used internally by the router
-    loadChildren: './dynamic-modules/message/message.module#MessageModule'
+    loadChildren: () => import('./dynamic-modules/message/message.module').then(m => m.MessageModule)
   },
   {
     componentId: 'dialog',
     path: 'dialog',
-    loadChildren: './dynamic-modules/dialog/dialog.module#DialogModule'
+    loadChildren: () => import('./dynamic-modules/dialog/dialog.module').then(m => m.DialogModule)
   }
 ];
 
