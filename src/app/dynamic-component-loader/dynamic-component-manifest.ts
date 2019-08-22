@@ -16,5 +16,5 @@ export interface DynamicComponentManifest {
   path: string;
 
   /** Path to component module. */
-  loadChildren: string;
+  loadChildren: string | any; // Support for angular 8 style module imports
 }
